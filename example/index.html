@@ -1,0 +1,23 @@
+<html>
+  <head>
+	<body>
+	
+	<div id="message"></div>
+
+	<input id="random_input"/>
+
+	<div id="items">
+		<ul>
+		{{#each this}}
+			<li>{{this.name}}</li>		
+		{{/each}}
+		</ul>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="../src/bond.js"></script>
+	<script src="app.js"></script>	
+	</body>
+</html>
