@@ -1,5 +1,8 @@
 var bond = {
 	AppContainer : "#app",
+	bind : function(model){
+		Object.observe(model,model.handleModelChange);
+	},
 	Model : function(){
 		var templates = {};
 		function is($elem,type){
@@ -34,7 +37,7 @@ var bond = {
 				$elem.text(value);
 			}
 		}
-		function handleModelChange(changes){
+		function handleModelChange(changes,done){
 			changes.forEach(function(change){
 				var name = change.name,
 						value = change.object[name],
@@ -49,8 +52,7 @@ var bond = {
 			})
       $(bond.AppContainer).fadeIn();
     }
-	Object.observe(this,handleModelChange);
 
-	this.handleModelChange = handleModelChange;
+  	this.handleModelChange = handleModelChange;
 	}
 };

@@ -14,7 +14,9 @@
   "devDependencies": {
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
+    "jquery": "^2.2.0",
     "karma": "^0.13.21",
-    "karma-jasmine": "^0.3.7"
+    "karma-jasmine": "^0.3.7",
+    "object.observe": "^0.2.6"
   }
 }
