@@ -1,10 +1,22 @@
 var bond = {
 	AppContainer : "#app",
+	_templates : {},
+	_getTemplate : function(name,source){
+			var template = null,
+					templates = bond._templates;
+			if(templates[name] != undefined){
+			  template = templates[name];
+			}
+			else{
+				template = Handlebars.compile(source);
+				templates[name]=template;
+			}
+			return template;
+	},
 	bind : function(model){
 		Object.observe(model,model.handleModelChange);
 	},
-	Model : function(){
-		var templates = {};
+	Model : function(cb){
 		function is($elem,type){
 			return $elem.is(type);
 		}
@@ -14,21 +26,10 @@ var bond = {
 		function isInput($elem){
 			return is($elem,"input");
 		}		
-		function getTemplate(name,source){
-			var template = null;
-			if(templates[name] != undefined){
-			  template = templates[name];
-			}
-			else{
-				template = Handlebars.compile(source);
-				templates[name]=template;
-			}
-			return template;
-		}
 		function processDiv($elem,name,value){
 			if($elem.children().length > 0 ){
 				var source = $elem.html(),
-						template = getTemplate(name,source);
+						template = bond._getTemplate(name,source);
 				
 				var html = template(value);
 				$elem.html(html);
@@ -49,8 +50,12 @@ var bond = {
 				else if(isInput($elem)){
 					$elem.val(value);
 				}
-			})
+
+				if(cb!=undefined)
+      	cb();
+			});
       $(bond.AppContainer).fadeIn();
+    
     }
 
   	this.handleModelChange = handleModelChange;
