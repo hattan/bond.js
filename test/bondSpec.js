@@ -11,7 +11,7 @@ describe("bond tests",function(){
 	 		done() ;
 		});  
 
-		bond.bind(model);
+		model = bond.bind(model);
 
 		model.foo = "bar";  
 	});
@@ -22,7 +22,7 @@ describe("bond tests",function(){
 		};
 
 		var model = new bond.Model(modelChangeHandler);
-		bond.bind(model);
+		model = bond.bind(model);
 
 		model.foo = "bar"; 
 	});
@@ -38,7 +38,7 @@ describe("bond tests",function(){
 		};
 
 		var model = new bond.Model(modelChangeHandler);
-		bond.bind(model);
+		model = bond.bind(model);
 
 		model.message = "hello there"; 
 	});
@@ -56,7 +56,7 @@ describe("bond tests",function(){
 		};
 
 		var model = new bond.Model(modelChangeHandler);
-		bond.bind(model);
+		model = bond.bind(model);
 
 		model.fakeinput = expected; 
 	});
@@ -74,7 +74,7 @@ describe("bond tests",function(){
 		};
 
 		var model = new bond.Model(modelChangeHandler);
-		bond.bind(model);
+		model = bond.bind(model);
 
 		model.items = [
 			{name: "bob"},

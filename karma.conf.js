@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Mon Feb 15 2016 23:18:54 GMT-0800 (PST)
+// Generated on Tue Sep 27 2016 18:26:00 GMT-0700 (PDT)
 
 module.exports = function(config) {
   config.set({
@@ -13,7 +13,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
 
-    // list of files / patterns to load in the browser
+     // list of files / patterns to load in the browser
     files: [
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/handlebars/dist/handlebars.min.js',

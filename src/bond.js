@@ -14,7 +14,14 @@ var bond = {
 			return template;
 	},
 	bind : function(model){
-		Object.observe(model,model.handleModelChange);
+		var handler = {
+    		set: function(target, prop, value, receiver) {
+           		model.handleModelChange(prop,value);
+    			return true;
+    		}
+		};
+
+		return new Proxy(model,handler);
 	},
 	Model : function(cb){
 		function is($elem,type){
@@ -38,26 +45,25 @@ var bond = {
 				$elem.text(value);
 			}
 		}
-		function handleModelChange(changes,done){
-			changes.forEach(function(change){
-				var name = change.name,
-						value = change.object[name],
-						$elem = $("#" + name);
+		function handleModelChange(name,value){
+			var $elem = $("#" + name);
 
-				if(isDiv($elem)){
-					processDiv($elem,name,value);
-				}
-				else if(isInput($elem)){
-					$elem.val(value);
-				}
+			if(isDiv($elem)){
+				processDiv($elem,name,value);
+			}
+			else if(isInput($elem)){
+				$elem.val(value);
+			}
 
-				if(cb!=undefined)
-      	cb();
-			});
-      $(bond.AppContainer).fadeIn();
+			if(cb!=undefined)
+				cb();
+		
+     	 $(bond.AppContainer).fadeIn();
     
     }
 
   	this.handleModelChange = handleModelChange;
+	
+
 	}
 };
