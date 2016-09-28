@@ -5,13 +5,12 @@ describe("bond tests",function(){
 	});
 
 	it("should call handleModelChange when a property on the model has changed",function(done){
-		var model = new bond.Model();
+		var foo =  new bond.Model();
+		model = bond.bind(foo);
 		
-		spyOn(model,'handleModelChange').and.callFake(function(admin)  {
+		spyOn(foo,'handleModelChange').and.callFake(function(admin)  {
 	 		done() ;
 		});  
-
-		model = bond.bind(model);
 
 		model.foo = "bar";  
 	});
@@ -21,8 +20,7 @@ describe("bond tests",function(){
 			done();
 		};
 
-		var model = new bond.Model(modelChangeHandler);
-		model = bond.bind(model);
+		var model =  bond.Create(modelChangeHandler);
 
 		model.foo = "bar"; 
 	});

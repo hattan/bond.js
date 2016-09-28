@@ -23,6 +23,10 @@ var bond = {
 
 		return new Proxy(model,handler);
 	},
+	Create : function(cb){
+		var model = new bond.Model(cb);
+		return bond.bind(model);
+	},
 	Model : function(cb){
 		function is($elem,type){
 			return $elem.is(type);
@@ -60,10 +64,9 @@ var bond = {
 		
      	 $(bond.AppContainer).fadeIn();
     
-    }
+    	}
 
-  	this.handleModelChange = handleModelChange;
-	
+  		this.handleModelChange = handleModelChange;
 
 	}
 };

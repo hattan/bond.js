@@ -19,8 +19,7 @@ bond uses convention over configuration. The name of your element must match the
 
 ```javascript
 //initialize bond
-var model = new bond.Model();
-bond.bind(model);
+var model = bond.Create();
 
 //bind to a div
 model.message = 'hello world!';
