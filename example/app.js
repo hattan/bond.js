@@ -2,6 +2,7 @@ $(function(){
 
 	//initialize bond
 	var model = new bond.Model();
+  model = bond.bind(model);
 
 	//bind to a div
 	model.message = "hello world!";
