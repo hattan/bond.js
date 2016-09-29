@@ -16,6 +16,7 @@ var bond = {
 	bind : function(model){
 		var handler = {
     		set: function(target, prop, value, receiver) {
+				console.log("change " + prop + " = " + value);
            		model.handleModelChange(prop,value);
     			return true;
     		}

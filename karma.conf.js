@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/handlebars/dist/handlebars.min.js',
+      'node_modules/proxy-polyfill/proxy.min.js',
       'src/**/*.js',
       'test/**/*.js'
     ],
