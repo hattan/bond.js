@@ -1,4 +1,4 @@
-# bond.js ![build status](https://travis-ci.org/hattan/bond.js.svg?branch=master)
+# bond.js [![Build Status](https://travis-ci.org/hattan/bond.js.svg?branch=master)](https://travis-ci.org/hattan/bond.js)
 A simple micro-binding library for use with jQuery and Handlerbars.
 
 bond uses convention over configuration. The name of your element must match the model property. If your element is a div and contains child elements, bond assumes that is a handlebars template and will try to render it.
