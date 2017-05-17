@@ -4,7 +4,7 @@ describe("bond tests",function(){
 		expect(bond.AppContainer).toBe("#app");
 	});
 
-	it("should call handleModelChange when a property on the model has changed",function(done){
+	/*it("should call handleModelChange when a property on the model has changed",function(done){
 		var foo =  new bond.Model();
 		model = bond.bind(foo);
 		
@@ -86,5 +86,5 @@ describe("bond tests",function(){
 
 		expect(bond._templates["foo"]).toBeTruthy();
 	});
-
+*/
 });
